@@ -89,7 +89,7 @@ function enviar_correo_confirmacion($correo, $token) {
         $mail->Host = 'smtp.hostinger.com';  // Cambia por tu servidor SMTP
         $mail->SMTPAuth = true; 
         $mail->Username = 'no-reply@olas.caowthing.es'; // Cambia por tu correo
-         main
+
         $mail->Password = '4q|Rxi8I='; // Cambia por tu contraseña
 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
