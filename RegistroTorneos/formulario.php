@@ -4,12 +4,7 @@ include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la b
 if(isset($_POST['id_torneo'])){
     $torneo = $_POST['id_torneo'];
     $consulta = "SELECT * FROM torneos WHERE id_torneo = ?";
-    $stmt = $conexionsql->prepare($consulta);
-    $stmt->bind_param("i",$torneo);
-    $stmt->execute();
-
-    $stmt->close();
-
+    $resultado = $conexion->query($consulta);
 }
 
 ?>
