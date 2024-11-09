@@ -99,49 +99,49 @@ if (isset($_GET['id'])) {
         </form>
     </div>
     <script>
-    function toggleTeamSection() {
-        var registrationType = document.getElementById('registrationType').value;
-        var individualSection = document.getElementById('individualSection');
-        var teamSection = document.getElementById('teamSection');
 
-        if (registrationType === 'team') {
-            individualSection.style.display = 'none';
-            teamSection.style.display = 'block';
-        } else {
-            individualSection.style.display = 'block';
-            teamSection.style.display = 'none';
+        function toggleTeamSection() {
+            var registrationType = document.getElementById('registrationType').value;
+            var individualSection = document.getElementById('individualSection');
+            var teamSection = document.getElementById('teamSection');
+
+            if (registrationType === 'team') {
+                individualSection.style.display = 'none';
+                teamSection.style.display = 'block';
+            } else {
+                individualSection.style.display = 'block';
+                teamSection.style.display = 'none';
+            }
         }
-    }
 
-    // Función para agregar un nuevo miembro al equipo
-    function addMember() {
-        var teamMembersDiv = document.getElementById('teamMembers');
+        function addMember() {
+            var teamMembersDiv = document.getElementById('teamMembers');
 
-        // Crear un nuevo div para el miembro
-        var newMemberDiv = document.createElement('div');
-        newMemberDiv.classList.add('member');
+            // Crear un nuevo div para el miembro
+            var newMemberDiv = document.createElement('div');
+            newMemberDiv.classList.add('member');
 
-        // Campo de nombre
-        var nameInput = document.createElement('input');
-        nameInput.type = 'text';
-        nameInput.name = 'memberName[]';
-        nameInput.placeholder = 'Nombre del miembro';
-        newMemberDiv.appendChild(nameInput);
+            // Campo de nombre
+            var nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.name = 'memberName[]';
+            nameInput.placeholder = 'Nombre del miembro';
+            newMemberDiv.appendChild(nameInput);
 
-        // Campo de email
-        var emailInput = document.createElement('input');
-        emailInput.type = 'email';
-        emailInput.name = 'memberEmail[]';
-        emailInput.placeholder = 'Email del miembro';
-        newMemberDiv.appendChild(emailInput);
+            // Campo de email
+            var emailInput = document.createElement('input');
+            emailInput.type = 'email';
+            emailInput.name = 'memberEmail[]';
+            emailInput.placeholder = 'Email del miembro';
+            newMemberDiv.appendChild(emailInput);
 
-        // Añadir el nuevo miembro al equipo
-        teamMembersDiv.appendChild(newMemberDiv);
-    }
+            // Añadir el nuevo miembro al equipo
+            teamMembersDiv.appendChild(newMemberDiv);
+        }
 
-    // Ejecutar la función al cargar la página si ya hay un tipo seleccionado
-    window.onload = toggleTeamSection;
-</script>
+        // Ejecutar la función al cargar la página
+        window.onload = toggleTeamSection;
+    </script>
 </body>
 
 </html>
