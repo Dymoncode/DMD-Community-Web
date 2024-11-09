@@ -98,7 +98,7 @@ if (isset($_GET['id'])) {
 
             <!-- Botón de envío -->
             <button type="submit">Enviar Inscripción</button>
-            <a href="index.php">Volver al Inicio</a>
+            <a href="../index.php">Volver al Inicio</a>
         </form>
     </div>
 
