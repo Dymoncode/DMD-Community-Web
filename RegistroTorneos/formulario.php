@@ -6,7 +6,7 @@ if (isset($_GET['id_torneo'])) {
     $torneo_id = $_GET['id_torneo'];
     
     // Usar una consulta preparada para evitar inyección SQL
-    $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id = ?");
+    $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id = ?"); // Cambié id_torneo por id
     $consulta->bind_param("i", $torneo_id); // 'i' para indicar que el parámetro es un entero
     $consulta->execute();
     $resultado = $consulta->get_result();
@@ -46,7 +46,7 @@ if (isset($_GET['id_torneo'])) {
             <label for="tournamentName">Nombre del Torneo: 
                 <?php echo htmlspecialchars($torneo['nombre']); ?>    
             </label>
-            <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id_torneo']); ?>">
+            <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
 
             <label for="participantName">Nombre del Participante o Equipo</label>
             <input type="text" id="participantName" name="participantName" required>
