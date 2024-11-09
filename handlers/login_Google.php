@@ -1,6 +1,8 @@
 <?php
 require_once '../vendor/autoload.php';
 require_once '../config.php';
+
+use Google_Service_Oauth2;
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
 // Configuración del cliente de Google
@@ -53,9 +55,7 @@ function usuario_existente_google($conexion, $correo) {
     // Retornar el resultado si existe
     return $stmt->get_result()->fetch_assoc(); // Retorna el usuario si existe
 
-    // Cerrar la consulta
-    $stmt->close();
-    
+
 }
 
 // Función para registrar un nuevo usuario con Google
@@ -122,4 +122,3 @@ $client = configurar_cliente_google();
 
 // Manejar el inicio de sesión con Google
 manejar_login_google($client, $conexion);
-?>

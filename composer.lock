@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac110e1f846de69ce5253e98193915b6",
+    "content-hash": "f78498a65fb48ddcd5ce8e07dc737f8f",
     "packages": [
         {
             "name": "firebase/php-jwt",
