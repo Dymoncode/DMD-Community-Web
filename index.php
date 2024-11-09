@@ -69,7 +69,7 @@ while ($row = $resultado2->fetch_assoc()) {
             <ul class="card-list swiper-wrapper">
                 <?php foreach ($torneos as $row) { ?>
                     <li class="card-item swiper-slide">
-                        <form action="formulario.php" method="POST" class="card-link">
+                        <form action="RegistroTorneos/formulario.php" method="POST" class="card-link">
                             <!-- Campo oculto para enviar el id del torneo -->
                             <input type="hidden" name="id_torneo" value="<?php echo $row['id']; ?>"> <!-- ID del torneo -->
 
