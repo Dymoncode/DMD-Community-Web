@@ -87,7 +87,6 @@ while ($row = $resultado2->fetch_assoc()) {
                                 <?php echo $row['Precio_inscripcion']."€"; ?>
                             </p>
                             
-                            <button type="submit" class="card-button material-symbols-outlined">arrow_forward</button>
                         </form>
                     </li>
                 <?php } ?>
