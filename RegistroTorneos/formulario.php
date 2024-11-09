@@ -41,7 +41,7 @@ if (isset($_POST['id'])) {
 
             <!-- Datos generales -->
             <label for="tournamentName">Nombre del Torneo: 
-                <?php echo htmlspecialchars($torneo['nombre']); ?>    
+                <?php echo $torneo['nombre']; ?>    
             </label>
 
             <label for="participantName">Nombre del Participante o Equipo</label>
