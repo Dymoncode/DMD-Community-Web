@@ -256,12 +256,28 @@ transform: rotate(-45deg);
 }
 .juegos-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); /* Autoajuste de columnas */
-  gap: 1rem; /* Espacio entre elementos */
-  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales de ancho */
+  gap: 1rem; /* Espacio entre columnas */
+  width: 100%; /* Ancho del contenedor */
 }
 
+@media (max-width: 1200px) {
+  .juegos-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas cuando la pantalla es más pequeña */
+  }
+}
 
+@media (max-width: 900px) {
+  .juegos-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 600px) {
+  .juegos-container {
+    grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas (por ejemplo, móviles) */
+  }
+}
 .juego {
   background: black;
   /* Fondo negro */
