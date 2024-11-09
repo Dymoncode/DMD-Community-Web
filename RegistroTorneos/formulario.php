@@ -2,12 +2,12 @@
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
 // Verificar si el id_torneo se ha enviado por GET
-if (isset($_GET['id_torneo'])) {
-    $torneo_id = $_GET['id_torneo'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
     
     // Usar una consulta preparada para evitar inyección SQL
     $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id = ?");
-    $consulta->bind_param("i", $torneo_id); // 'i' para indicar que el parámetro es un entero
+    $consulta->bind_param("i", $id); // 'i' para indicar que el parámetro es un entero
     $consulta->execute();
     $resultado = $consulta->get_result();
     
