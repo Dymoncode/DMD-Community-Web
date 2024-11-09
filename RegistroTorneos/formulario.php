@@ -19,9 +19,7 @@ if (isset($_POST['is'])) {
         echo "Torneo no encontrado.";
         exit; // Detener la ejecución si no se encuentra el torneo
     }
-} else {
-    echo "ID de torneo no proporcionado.";
-    exit; // Detener la ejecución si no se recibe el id
+
 }
 ?>
 
