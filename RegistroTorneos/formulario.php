@@ -12,13 +12,9 @@ if (isset($_POST['id_torneo'])) {
     $resultado = $consulta->get_result(); // Obtener el resultado de la consulta
     
     // Verificar si se encontró el torneo
-    if ($resultado->num_rows > 0) {
+   
         $torneo = $resultado->fetch_assoc(); // Obtener los datos del torneo
-    } else {
-        // Si no se encuentra el torneo, manejar el error
-        echo "Torneo no encontrado.";
-        exit; // Detener la ejecución si no se encuentra el torneo
-    }
+   
 } else {
     echo "ID de torneo no proporcionado.";
     exit; // Detener la ejecución si no se recibe el id
