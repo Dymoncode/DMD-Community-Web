@@ -38,7 +38,12 @@ if (isset($_GET['id'])) {
         <form id="tournamentForm" action="procesar_inscripcion.php" method="POST">
             <!-- Campo oculto para enviar el id del torneo -->
             <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
-
+            <input type="hidden" name="tournamentName" value="<?php echo htmlspecialchars($torneo['nombre']); ?>">
+            <?php
+            // Si el usuario está logueado, mostrar su nombre
+            if (isset($_SESSION['user'])) { ?>
+                <input type="hidden" name="participantNameLogeado" value="<?php echo htmlspecialchars($_SESSION['user']['nombre']); ?>">
+            <?php } ?>
             <!-- Datos generales -->
             <label for="tournamentName">Nombre del Torneo:
                 <?php echo $torneo['nombre']; ?>
