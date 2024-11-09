@@ -60,8 +60,6 @@ if (isset($_GET['id'])) {
             </select>
 
             <!-- Campos para inscripción individual -->
-                
-                
                 <?php
                 // si el usuario no está logueado, mostrar los campos de email y teléfono
                 // si el usuario está logueado, mostrar los campos de nombre y teléfono
