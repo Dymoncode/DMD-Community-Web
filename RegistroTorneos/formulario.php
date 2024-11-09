@@ -1,29 +1,27 @@
 <?php
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
-// Verificar si el id_torneo se ha enviado por GET
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+// Verificar si el id_torneo se ha enviado por POST
+if (isset($_POST['id_torneo'])) {
+    $id = $_POST['id_torneo']; // Obtener el id del torneo desde el formulario
     
     // Usar una consulta preparada para evitar inyección SQL
     $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id = ?");
-    $consulta->bind_param("i", $id); // 'i' para indicar que el parámetro es un entero
-    $consulta->execute();
-    $resultado = $consulta->get_result();
-
-
+    $consulta->bind_param("i", $id); // 'i' indica que el parámetro es un entero
+    $consulta->execute(); // Ejecutar la consulta
+    $resultado = $consulta->get_result(); // Obtener el resultado de la consulta
+    
     // Verificar si se encontró el torneo
     if ($resultado->num_rows > 0) {
         $torneo = $resultado->fetch_assoc(); // Obtener los datos del torneo
     } else {
         // Si no se encuentra el torneo, manejar el error
         echo "Torneo no encontrado.";
-        exit;
+        exit; // Detener la ejecución si no se encuentra el torneo
     }
 } else {
-    // Si no se recibe id_torneo, manejar el error
     echo "ID de torneo no proporcionado.";
-    exit;
+    exit; // Detener la ejecución si no se recibe el id
 }
 ?>
 
