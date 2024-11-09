@@ -66,28 +66,31 @@ while ($row = $resultado2->fetch_assoc()) {
     <section class="section-torneo">
         <div class="container swiper">
             <div class="card-wrapper">
-                <ul class="card-list swiper-wrapper">
-                    <?php foreach ($torneos as $row) { ?>
-                    <li class="card-item swiper-slide">
-                        <a href="#" class="card-link">
-                            <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
-                            <h2 class="card-title">
-                                <?php echo $row['nombre']; ?>
-                            </h2>
-                            <p class="card-text">Fecha de inicio:
-                                <?php echo $row['fecha_inicio']; ?>
-                            </p>
-                            <p class="card-text">Premio:
-                                <?php echo $row['Premio']."€"; ?>
-                            </p>
-                            <p class="card-text">Precio de inscripción:
-                                <?php echo $row['Precio_inscripcion']."€"; ?>
-                            </p>
-                            <button class="card-button material-symbols-outlined">arrow_forward</button>
-                        </a>
-                    </li>
-                    <?php } ?>
-                </ul>
+            <ul class="card-list swiper-wrapper">
+    <?php foreach ($torneos as $row) { ?>
+        <li class="card-item swiper-slide">
+            <form action="./RegistroTorneos/formulario.php" method="POST" class="card-link">
+                <input type="hidden" name="id_torneo" value="<?php echo $row['id_torneo']; ?>"> <!-- ID del torneo -->
+                
+                <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
+                <h2 class="card-title">
+                    <?php echo $row['nombre']; ?>
+                </h2>
+                <p class="card-text">Fecha de inicio:
+                    <?php echo $row['fecha_inicio']; ?>
+                </p>
+                <p class="card-text">Premio:
+                    <?php echo $row['Premio']."€"; ?>
+                </p>
+                <p class="card-text">Precio de inscripción:
+                    <?php echo $row['Precio_inscripcion']."€"; ?>
+                </p>
+                
+                <button type="submit" class="card-button material-symbols-outlined">arrow_forward</button>
+            </form>
+        </li>
+    <?php } ?>
+</ul>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-slide-button swiper-button-prev"></div>
                 <div class="swiper-slide-button swiper-button-next"></div>

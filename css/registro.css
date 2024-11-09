@@ -19,7 +19,7 @@ a{
     color: #fff;
 }
 a:hover{
-    color: #f1c40f;
+    color: #ffb700;
     text-decoration: underline;
  
 }
@@ -137,7 +137,7 @@ box-shadow: 0 0 1px 1px rgba(13, 13, 13, 0.774);
     font-size: 20px;
 }
 .input-field:focus ~ .icon{
-    color: #f1c40f;
+    color: #ffb700;
 }
 .input_box .input_submit{
     width: 100%;
@@ -152,7 +152,7 @@ box-shadow: 0 0 1px 1px rgba(13, 13, 13, 0.774);
     transition: .3s;
 }
 .input_box .input_submit:hover{
-    background: #f1c40f;
+    background: #ffb700;
     color: #000;
     border: 2px solid white;
 }
@@ -218,7 +218,7 @@ box-shadow: 0 0 1px 1px rgba(13, 13, 13, 0.774);
 
     }
     .button:hover{
-        background: #f1c40f;
+        background: #ffb700;
         color: #000;
         border: 2px solid white;
     }
