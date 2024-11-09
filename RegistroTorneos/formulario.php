@@ -10,19 +10,7 @@ if (isset($_POST['id_torneo'])) {
     $consulta->bind_param("i", $torneo_id); // 'i' para indicar que el parámetro es un entero
     $consulta->execute();
     $resultado = $consulta->get_result();
-    
-    // Verificar si se encontró el torneo
-    if ($resultado->num_rows > 0) {
-        $torneo = $resultado->fetch_assoc(); // Obtener los datos del torneo
-    } else {
-        // Si no se encuentra el torneo, manejar el error (por ejemplo, redirigir)
-        echo "Torneo no encontrado.";
-        exit;
-    }
-} else {
-    // Si no se recibe id_torneo, manejar el error (redirigir o mostrar mensaje)
-    echo "ID de torneo no proporcionado.";
-    exit;
+    $torneo = $resultado->fetch_assoc();
 }
 ?>
 
