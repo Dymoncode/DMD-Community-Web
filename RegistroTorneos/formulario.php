@@ -1,8 +1,5 @@
 <?php
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +25,12 @@ include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la b
 
             <label for="participantName">Nombre del Participante o Equipo</label>
             <input type="text" id="participantName" name="participantName" required>
+
+            <label for="participantNameDiscord">Nick de Discord del Participante o Equipo</label>
+            <input type="text" id="participantNameDiscord" name="participantNameDiscord" required>
+
+            <label for="participantNick">Nick del Participante o Equipo</label>
+            <input type="text" id="participantNick" name="participantNick" required>
 
             <!-- Selector de tipo de inscripción -->
             <label for="registrationType">Tipo de Inscripción</label>
@@ -69,5 +72,5 @@ include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la b
     </div>
 
 <body>
-
+    
 </html>
