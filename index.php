@@ -175,7 +175,7 @@ while ($row = $resultado2->fetch_assoc()) {
             <h4>Patrocinadores</h4>
             <div class="equipo-lista">
                 <div class="equipo-card">
-                    <img src="Assets/Images/default-profile.png" alt="Patrocinador 1">
+                    <img src="Assets/Images/DefaultProfile.png" alt="Patrocinador 1">
                     <p>Patrocinador 1</p>
                 </div>
                 <!-- Añadir más patrocinadores aquí -->
@@ -187,7 +187,7 @@ while ($row = $resultado2->fetch_assoc()) {
             <h4>Diseñadores</h4>
             <div class="equipo-lista">
                 <div class="equipo-card">
-                    <img src="Assets/Images/default-profile.png" alt="Diseñador 1">
+                    <img src="Assets/Images/DefaultProfile.png" alt="Diseñador 1">
                     <p>Diseñador 1</p>
                 </div>
                 <!-- Añadir más diseñadores aquí -->
@@ -225,7 +225,7 @@ while ($row = $resultado2->fetch_assoc()) {
                     <p>MondyXz</p>
                 </div>
                 <div class="equipo-card">
-                    <img src="Assets/Images/default-profile.png" alt="Creador de Contenido 3">
+                    <img src="Assets/Images/DefaultProfile.png" alt="Creador de Contenido 3">
                     <p>hdanh_074</p>
                 </div>
                 <div class="equipo-card">
