@@ -1,27 +1,23 @@
 <?php
 
-if(isset($_POST['participantName'], $_POST['participantNameDiscord'], $_POST['participantNick'], $_POST['registrationType'], $_POST['id_torneo'],$_POST['participantNameLogeado'])) {
+if(isset($_POST['participantName'], $_POST['participantNameDiscord'], $_POST['participantNick'], $_POST['registrationType'], $_POST['id_torneo'],$_POST['participantNameLogeado']
+,$_POST['tournamentName'])) {
+    $nombretorneo = $_POST['tournamentName'];
     $nombre = $_POST['participantName'];
     $discord = $_POST['participantNameDiscord'];
     $nick = $_POST['participantNick'];
     $tipo = $_POST['registrationType'];
     $id_torneo = $_POST['id_torneo'];
-    $name_usuario_logeado = $_POST['participantNameLogeado'];
+
 
     if($tipo == 'individual') {
         $correo = $_POST['playerEmail'];
         $telefono = $_POST['playerPhone'];
-    } else {
-        $correo = $_POST['teamCaptainEmail'];
-        $telefono = $_POST['teamCaptainPhone'];
-        $miembros = $_POST['memberName'];
-        $emails = $_POST['memberEmail'];
-    }
-
-    $sql = "INSERT INTO inscripciones (nombre_torneo, Participante, NickDiscord, NickParticipante, TipodeInscripción, CorreoElectrónico, Teléfono,usurs_id) VALUES ('?', '?', '?', '?', '?', '?', '?', '?')";
+    } 
+    $sql = "INSERT INTO inscripciones (nombre_torneo, Participante, NickDiscord, NickParticipante, TipodeInscripción, CorreoElectrónico, Teléfono) VALUES (?,?,?,?,?,?,?,?)";
     $stmt = $conexion->prepare($sql);
     if ($stmt === false) die('Error en la preparacion de la consulta: ' . htmlspecialchars($conexion->error));
-    $stmt->bind_param("isssssss", $id_torneo, $nombre, $discord, $nick, $tipo, $correo, $telefono,$name_usuario_logeado);
+    $stmt->bind_param("isssssss", $nombretorneo, $nombre, $discord, $nick, $tipo, $correo, $telefono);
     if(!$stmt->execute()) die('Error en la ejecucion de la consulta: ' . htmlspecialchars($stmt->error));
     $stmt->close();
     $result = $conexion->query($sql);
