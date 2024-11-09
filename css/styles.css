@@ -136,7 +136,7 @@ body {
 }
 .header-section {
   display: flex;
-  justify-content: center;
+  position: absolute;
 }
 
 .card-wrapper{
