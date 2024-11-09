@@ -93,10 +93,12 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
                 <button type="button" onclick="addMember()">Añadir miembro</button>
+                
             </div>
 
             <!-- Botón de envío -->
             <button type="submit">Enviar Inscripción</button>
+            <a href="index.php">Volver al Inicio</a>
         </form>
     </div>
 
