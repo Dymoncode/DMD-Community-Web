@@ -88,7 +88,7 @@ select:focus {
     outline: none;
     border-color: #ffb700;
 }
-.a{
+a{
     display: block;
     margin: 10px 0;
     background-color: #3498db;
