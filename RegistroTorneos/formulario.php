@@ -1,27 +1,48 @@
 <?php
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
-?>
-<!DOCTYPE html>
-<html lang="en">
 
+// Verificar si el id del torneo se ha enviado por POST (cuando el formulario se envía)
+if (isset($_GET['id'])) {
+    $id = $_GET['id']; // Obtener el id del torneo desde el formulario
+    
+    // Usar una consulta preparada para evitar inyección SQL
+    $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id = ?");
+    $consulta->bind_param("i", $id); // 'i' indica que el parámetro es un entero
+    $consulta->execute(); // Ejecutar la consulta
+    $resultado = $consulta->get_result(); // Obtener el resultado de la consulta
+    
+    // Verificar si se encontró el torneo
+    if ($resultado->num_rows > 0) {
+        $torneo = $resultado->fetch_assoc(); // Obtener los datos del torneo
+    } else {
+        // Si no se encuentra el torneo, manejar el error
+        echo "Torneo no encontrado.";
+        exit; // Detener la ejecución si no se encuentra el torneo
+    }
+
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DMD Community</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <title>Formulario de Inscripción a Torneos</title>
     <link rel="stylesheet" href="/css/estiloformulario.css?v=<?php echo time(); ?>">
-
 </head>
 
 <body>
-<div class="form-container">
+    <div class="form-container">
         <h2>Formulario de Inscripción a Torneos</h2>
-        <form id="tournamentForm">
+        <form id="tournamentForm" action="procesar_inscripcion.php" method="POST">
+            <!-- Campo oculto para enviar el id del torneo -->
+            <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
+
             <!-- Datos generales -->
-            <label for="tournamentName">Nombre del Torneo</label>
-            <input type="text" id="tournamentName" name="tournamentName" required>
+            <label for="tournamentName">Nombre del Torneo: 
+                <?php echo $torneo['nombre']; ?>    
+            </label>
 
             <label for="participantName">Nombre del Participante o Equipo</label>
             <input type="text" id="participantName" name="participantName" required>
@@ -70,7 +91,6 @@ include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la b
             <button type="submit">Enviar Inscripción</button>
         </form>
     </div>
+</body>
 
-<body>
-    
 </html>

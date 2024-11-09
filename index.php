@@ -2,7 +2,7 @@
 include './sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 session_start();    // Verificamos si el usuario ha iniciado sesión
 
-$consulta = "SELECT nombre, fecha_inicio, Premio, Precio_inscripcion, imagen FROM torneos ORDER BY fecha_inicio ASC, nombre ASC";
+$consulta = "SELECT id, nombre, fecha_inicio, Premio, Precio_inscripcion, imagen FROM torneos ORDER BY fecha_inicio ASC, nombre ASC";
 $resultado = $conexion->query($consulta);
 
 $torneos = [];
@@ -35,11 +35,11 @@ while ($row = $resultado2->fetch_assoc()) {
 <body>
     <?php
     if (isset($_GET['success'])) { ?>
-    <div class="alert success">
-        <?php echo $_GET['success']; ?>
-    </div>
+        <div class="alert success">
+            <?php echo $_GET['success']; ?>
+        </div>
     <?php } ?>
-    
+
     <!-- Encabezado -->
     <header class="header">
         <div class="header-content">
@@ -52,59 +52,48 @@ while ($row = $resultado2->fetch_assoc()) {
             <li><a href="#torneos">Próximos Torneos</a></li>
             <li><a href="#juegos">Juegos</a></li>
             <li><a href="#noticias">Noticias</a></li>
-            <?php if(!isset($_SESSION['user'])) { ?>
-            <li><a href="./login.php">Registro</a></li>
-            <?php }else { ?>
-            <li><a href="./handlers/logout.php">Cerrar Sesión</a></li>
+            <?php if (!isset($_SESSION['user'])) { ?>
+                <li><a href="./login.php">Registro</a></li>
+            <?php } else { ?>
+                <li><a href="./handlers/logout.php">Cerrar Sesión</a></li>
             <?php } ?>
 
-            
+
         </ul>
     </nav>
     <!-- Próximos Torneos -->
     <section class="section-torneo">
-        <div class="container swiper">
-            <div class="card-wrapper">
+    <div class="container swiper">
+        <div class="card-wrapper">
             <ul class="card-list swiper-wrapper">
-    <?php foreach ($torneos as $row) { ?>
-        <li class="card-item swiper-slide">
-            <form action="./RegistroTorneos/formulario.php" method="POST" class="card-link">
-                <input type="hidden" name="id_torneo" value="<?php echo $row['id_torneo']; ?>"> <!-- ID del torneo -->
-                
-                <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
-                <h2 class="card-title">
-                    <?php echo $row['nombre']; ?>
-                </h2>
-                <p class="card-text">Fecha de inicio:
-                    <?php echo $row['fecha_inicio']; ?>
-                </p>
-                <p class="card-text">Premio:
-                    <?php echo $row['Premio']."€"; ?>
-                </p>
-                <p class="card-text">Precio de inscripción:
-                    <?php echo $row['Precio_inscripcion']."€"; ?>
-                </p>
-                
-                <button type="submit" class="card-button material-symbols-outlined">arrow_forward</button>
-            </form>
-        </li>
-    <?php } ?>
-</ul>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-slide-button swiper-button-prev"></div>
-                <div class="swiper-slide-button swiper-button-next"></div>
-            </div>
+                <?php foreach ($torneos as $row) { ?>
+                    <li class="card-item swiper-slide">
+                        <!-- Enlace con el ID del torneo en la URL -->
+                        <a href="./RegistroTorneos/formulario.php?id=<?php echo $row['id']; ?>" class="card-link">
+                            <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
+                            <h2 class="card-title"><?php echo $row['nombre']; ?></h2>
+                            <p class="card-text">Fecha de inicio: <?php echo $row['fecha_inicio']; ?></p>
+                            <p class="card-text">Premio: <?php echo $row['Premio'] . "€"; ?></p>
+                            <p class="card-text">Precio de inscripción: <?php echo $row['Precio_inscripcion'] . "€"; ?></p>
+                        </a>
+                    </li>
+                <?php } ?>
+            </ul>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-slide-button swiper-button-prev"></div>
+            <div class="swiper-slide-button swiper-button-next"></div>
         </div>
-    </section>
+    </div>
+</section>
     <section id="juegos" class="section juegos-section">
         <div class="header-section">
             <h2>Juegos Disponibles</h2>
         </div>
         <div class="juegos-container">
-            <?php foreach($torneos as $row) { ?>
-            <div class="juego">
-                <?php echo htmlspecialchars($row['nombre']); ?>
-            </div>
+            <?php foreach ($torneos as $row) { ?>
+                <div class="juego">
+                    <?php echo htmlspecialchars($row['nombre']); ?>
+                </div>
 
             <?php } ?>
         </div>
@@ -249,9 +238,9 @@ while ($row = $resultado2->fetch_assoc()) {
         <p>&copy; 2024 DMD Community - Todos los derechos reservados.</p>
         <div class="social-media">
             <?php foreach ($redes as $row) { ?>
-            <a href="<?php echo $row['enlace']; ?>" target="_blank" class="social-link">
-                <img src="<?php echo $row['icono']; ?>" alt="<?php echo $row['nombre']; ?>" class="social-icon">
-            </a>
+                <a href="<?php echo $row['enlace']; ?>" target="_blank" class="social-link">
+                    <img src="<?php echo $row['icono']; ?>" alt="<?php echo $row['nombre']; ?>" class="social-icon">
+                </a>
             <?php } ?>
         </div>
     </footer>
