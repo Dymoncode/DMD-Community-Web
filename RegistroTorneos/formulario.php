@@ -2,7 +2,7 @@
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
 // Verificar si el id del torneo se ha enviado por POST (cuando el formulario se envía)
-if (isset($_POST['is'])) {
+if (isset($_POST['id'])) {
     $id = $_POST['id']; // Obtener el id del torneo desde el formulario
     
     // Usar una consulta preparada para evitar inyección SQL
