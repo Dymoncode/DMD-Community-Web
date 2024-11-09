@@ -69,26 +69,14 @@ while ($row = $resultado2->fetch_assoc()) {
             <ul class="card-list swiper-wrapper">
                 <?php foreach ($torneos as $row) { ?>
                     <li class="card-item swiper-slide">
-                        <form action="RegistroTorneos/formulario.php" method="POST" class="card-link">
-                            <!-- Campo oculto para enviar el id del torneo -->
-                            <input type="hidden" name="id_torneo" value="<?php echo $row['id']; ?>"> <!-- ID del torneo -->
-
+                        <!-- Enlace con el ID del torneo en la URL -->
+                        <a href="./RegistroTorneos/formulario.php?id=<?php echo $row['id']; ?>" class="card-link">
                             <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
-                            <h2 class="card-title">
-                                <?php echo $row['nombre']; ?>
-                            </h2>
-                            <p class="card-text">Fecha de inicio:
-                                <?php echo $row['fecha_inicio']; ?>
-                            </p>
-                            <p class="card-text">Premio:
-                                <?php echo $row['Premio']."€"; ?>
-                            </p>
-                            <p class="card-text">Precio de inscripción:
-                                <?php echo $row['Precio_inscripcion']."€"; ?>
-                            </p>
-                            
-                            <button type="submit" class="card-button material-symbols-outlined">arrow_forward</button>
-                        </form>
+                            <h2 class="card-title"><?php echo $row['nombre']; ?></h2>
+                            <p class="card-text">Fecha de inicio: <?php echo $row['fecha_inicio']; ?></p>
+                            <p class="card-text">Premio: <?php echo $row['Premio'] . "€"; ?></p>
+                            <p class="card-text">Precio de inscripción: <?php echo $row['Precio_inscripcion'] . "€"; ?></p>
+                        </a>
                     </li>
                 <?php } ?>
             </ul>
