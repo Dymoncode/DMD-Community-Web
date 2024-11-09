@@ -2,7 +2,7 @@
 include './sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 session_start();    // Verificamos si el usuario ha iniciado sesión
 
-$consulta = "SELECT nombre, fecha_inicio, Premio, Precio_inscripcion, imagen FROM torneos";
+$consulta = "SELECT nombre, fecha_inicio, Premio, Precio_inscripcion, imagen FROM torneos ORDER BY fecha_inicio DESC";
 $resultado = $conexion->query($consulta);
 
 $torneos = [];
