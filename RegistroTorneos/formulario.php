@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
             <!-- Campo oculto para enviar el id del torneo -->
             <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
             <input type="hidden" name="tournamentName" value="<?php echo htmlspecialchars($torneo['nombre']); ?>">
-        
+            <input type="hidden" name="participantNameLogeado" value="<?php echo $_SESSION['user']['usuario']; ?>">
             <!-- Datos generales -->
             <label for="tournamentName">Nombre del Torneo:
                 <?php echo $torneo['nombre']; ?>
