@@ -71,15 +71,9 @@ if (isset($_GET['id'])) {
                         <label for="playerPhone">Teléfono</label>
                         <input type="tel" id="playerPhone" name="playerPhone">
                     </div>
-                <?php }else { ?>
-                    <div id="individualSection">
-                        <label for="playerName">Nombre del Participante</label>
-                        <input type="text" id="playerName" name="playerName" required>
-
-                        <label for="playerPhone">Teléfono</label>
-                        <input type="tel" id="playerPhone" name="playerPhone">
-                    </div>
-                <?php } ?>
+                <?php }?>
+                    
+             
 
 
             <!-- Campos para inscripción en equipo -->
