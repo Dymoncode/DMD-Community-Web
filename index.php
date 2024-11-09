@@ -63,40 +63,58 @@ while ($row = $resultado2->fetch_assoc()) {
         </ul>
     </nav>
     <!-- Próximos Torneos -->
-    <section class="section-torneo">
-        <div class="container swiper">
-            <div class="card-wrapper">
+   
+El código que proporcionas es casi correcto. Este es un formulario en el que cada elemento de la lista de torneos tiene un botón para redirigir al usuario a un formulario de inscripción, pasando el id_torneo de manera oculta.
+
+Sin embargo, hay algunos pequeños detalles que podrían necesitar ajuste para asegurar que todo funcione correctamente.
+
+Puntos clave a revisar:
+Método de envío: En tu código, el formulario tiene el method="POST", lo cual es correcto. Asegúrate de que el archivo formulario.php reciba y procese correctamente los datos enviados por el formulario.
+
+Acción del formulario: El formulario se envía a ./RegistroTorneos/formulario.php, por lo que asegúrate de que este archivo exista y pueda procesar el id_torneo.
+
+ID único: Estás usando id_torneo como un campo oculto. Esto es correcto, ya que así puedes enviar el id_torneo al archivo PHP que procesará la inscripción.
+
+Te muestro una versión ligeramente ajustada de tu código, con algunos pequeños detalles para mayor claridad:
+
+Código actualizado:
+php
+Copiar código
+<section class="section-torneo">
+    <div class="container swiper">
+        <div class="card-wrapper">
             <ul class="card-list swiper-wrapper">
-    <?php foreach ($torneos as $row) { ?>
-        <li class="card-item swiper-slide">
-            <form action="./RegistroTorneos/formulario.php" method="POST" class="card-link">
-                <input type="hidden" id="id_torneo" name="id_torneo" value="<?php echo $row['id_torneo']; ?>"> <!-- ID del torneo -->
-                
-                <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
-                <h2 class="card-title">
-                    <?php echo $row['nombre']; ?>
-                </h2>
-                <p class="card-text">Fecha de inicio:
-                    <?php echo $row['fecha_inicio']; ?>
-                </p>
-                <p class="card-text">Premio:
-                    <?php echo $row['Premio']."€"; ?>
-                </p>
-                <p class="card-text">Precio de inscripción:
-                    <?php echo $row['Precio_inscripcion']."€"; ?>
-                </p>
-                
-                <button type="submit" class="card-button material-symbols-outlined">arrow_forward</button>
-            </form>
-        </li>
-    <?php } ?>
-</ul>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-slide-button swiper-button-prev"></div>
-                <div class="swiper-slide-button swiper-button-next"></div>
-            </div>
+                <?php foreach ($torneos as $row) { ?>
+                    <li class="card-item swiper-slide">
+                        <form action="./RegistroTorneos/formulario.php" method="POST" class="card-link">
+                            <!-- Campo oculto con el ID del torneo -->
+                            <input type="hidden" id="id_torneo" name="id_torneo" value="<?php echo $row['id_torneo']; ?>"> 
+                            
+                            <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
+                            <h2 class="card-title">
+                                <?php echo htmlspecialchars($row['nombre']); ?>
+                            </h2>
+                            <p class="card-text">Fecha de inicio: 
+                                <?php echo htmlspecialchars($row['fecha_inicio']); ?>
+                            </p>
+                            <p class="card-text">Premio: 
+                                <?php echo htmlspecialchars($row['Premio']) . "€"; ?>
+                            </p>
+                            <p class="card-text">Precio de inscripción: 
+                                <?php echo htmlspecialchars($row['Precio_inscripcion']) . "€"; ?>
+                            </p>
+                            
+                            <button type="submit" class="card-button material-symbols-outlined">arrow_forward</button>
+                        </form>
+                    </li>
+                <?php } ?>
+            </ul>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-slide-button swiper-button-prev"></div>
+            <div class="swiper-slide-button swiper-button-next"></div>
         </div>
-    </section>
+    </div>
+</section>
     <section id="juegos" class="section juegos-section">
         <div class="header-section">
             <h2>Juegos Disponibles</h2>
