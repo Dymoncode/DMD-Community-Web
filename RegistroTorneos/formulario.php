@@ -1,7 +1,16 @@
 <?php
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
+if(isset($_POST['id_torneo'])){
+    $torneo = $_POST['id_torneo'];
+    $consulta = "SELECT * FROM torneos WHERE id_torneo = ?";
+    $stmt = $conexionsql->prepare($consulta);
+    $stmt->bind_param("i",$torneo);
+    $stmt->execute();
 
+    $stmt->close();
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +32,9 @@ include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la b
         <h2>Formulario de Inscripción a Torneos</h2>
         <form id="tournamentForm">
             <!-- Datos generales -->
-            <label for="tournamentName">Nombre del Torneo</label>
+            <label for="tournamentName">Nombre del Torneo : 
+            <?php echo $torneo['nombre']; ?>    
+            </label>
             <input type="text" id="tournamentName" name="tournamentName" required>
 
             <label for="participantName">Nombre del Participante o Equipo</label>
