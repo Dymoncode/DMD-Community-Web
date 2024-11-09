@@ -64,22 +64,7 @@ while ($row = $resultado2->fetch_assoc()) {
     </nav>
     <!-- Próximos Torneos -->
    
-El código que proporcionas es casi correcto. Este es un formulario en el que cada elemento de la lista de torneos tiene un botón para redirigir al usuario a un formulario de inscripción, pasando el id_torneo de manera oculta.
 
-Sin embargo, hay algunos pequeños detalles que podrían necesitar ajuste para asegurar que todo funcione correctamente.
-
-Puntos clave a revisar:
-Método de envío: En tu código, el formulario tiene el method="POST", lo cual es correcto. Asegúrate de que el archivo formulario.php reciba y procese correctamente los datos enviados por el formulario.
-
-Acción del formulario: El formulario se envía a ./RegistroTorneos/formulario.php, por lo que asegúrate de que este archivo exista y pueda procesar el id_torneo.
-
-ID único: Estás usando id_torneo como un campo oculto. Esto es correcto, ya que así puedes enviar el id_torneo al archivo PHP que procesará la inscripción.
-
-Te muestro una versión ligeramente ajustada de tu código, con algunos pequeños detalles para mayor claridad:
-
-Código actualizado:
-php
-Copiar código
 <section class="section-torneo">
     <div class="container swiper">
         <div class="card-wrapper">
