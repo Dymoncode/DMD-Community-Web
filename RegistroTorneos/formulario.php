@@ -19,7 +19,6 @@ if (isset($_GET['id'])) {
         echo "Torneo no encontrado.";
         exit; // Detener la ejecución si no se encuentra el torneo
     }
-
 }
 ?>
 
