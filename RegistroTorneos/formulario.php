@@ -1,13 +1,31 @@
 <?php
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
-if(isset($_POST['id_torneo'])){
-    $torneo = $_POST['id_torneo'];
-    $consulta = "SELECT * FROM torneos WHERE id_torneo = ?";
-    $resultado = $conexion->query($consulta);
+// Verificar si el id_torneo se ha enviado por POST
+if (isset($_POST['id_torneo'])) {
+    $torneo_id = $_POST['id_torneo'];
+    
+    // Usar una consulta preparada para evitar inyección SQL
+    $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id_torneo = ?");
+    $consulta->bind_param("i", $torneo_id); // 'i' para indicar que el parámetro es un entero
+    $consulta->execute();
+    $resultado = $consulta->get_result();
+    
+    // Verificar si se encontró el torneo
+    if ($resultado->num_rows > 0) {
+        $torneo = $resultado->fetch_assoc(); // Obtener los datos del torneo
+    } else {
+        // Si no se encuentra el torneo, manejar el error (por ejemplo, redirigir)
+        echo "Torneo no encontrado.";
+        exit;
+    }
+} else {
+    // Si no se recibe id_torneo, manejar el error (redirigir o mostrar mensaje)
+    echo "ID de torneo no proporcionado.";
+    exit;
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +33,20 @@ if(isset($_POST['id_torneo'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DMD Community</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="/css/estiloformulario.css?v=<?php echo time(); ?>">
-
 </head>
 
 <body>
-<div class="form-container">
+    <div class="form-container">
         <h2>Formulario de Inscripción a Torneos</h2>
-        <form id="tournamentForm">
+        <form id="tournamentForm" action="procesar_inscripcion.php" method="POST">
             <!-- Datos generales -->
-            <label for="tournamentName">Nombre del Torneo : 
-            <?php echo $torneo['nombre']; ?>    
+            <label for="tournamentName">Nombre del Torneo: 
+                <?php echo htmlspecialchars($torneo['nombre']); ?>    
             </label>
-            <input type="text" id="tournamentName" name="tournamentName" required>
+            <input type="text" id="tournamentName" name="tournamentName" value="<?php echo htmlspecialchars($torneo['nombre']); ?>" required>
 
             <label for="participantName">Nombre del Participante o Equipo</label>
             <input type="text" id="participantName" name="participantName" required>
@@ -74,6 +90,7 @@ if(isset($_POST['id_torneo'])){
         </form>
     </div>
 
-<body>
+   
+</body>
 
 </html>
