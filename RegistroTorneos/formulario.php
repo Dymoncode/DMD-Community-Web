@@ -10,7 +10,7 @@ if (isset($_POST['id_torneo'])) {
     $consulta->bind_param("i", $torneo_id); // 'i' para indicar que el parámetro es un entero
     $consulta->execute();
     $resultado = $consulta->get_result();
-    $torneo = $resultado->fetch_assoc();
+    
 }
 ?>
 
@@ -32,7 +32,7 @@ if (isset($_POST['id_torneo'])) {
         <form id="tournamentForm" action="procesar_inscripcion.php" method="POST">
             <!-- Datos generales -->
             <label for="tournamentName">Nombre del Torneo: 
-                <?php echo htmlspecialchars($torneo['nombre']); ?>    
+                <?php echo htmlspecialchars($resultado['id']); ?>    
             </label>
 
             <label for="participantName">Nombre del Participante o Equipo</label>
