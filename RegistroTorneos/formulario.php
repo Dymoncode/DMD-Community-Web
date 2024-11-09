@@ -6,7 +6,7 @@ if (isset($_POST['id_torneo'])) {
     $torneo_id = $_POST['id_torneo'];
     
     // Usar una consulta preparada para evitar inyección SQL
-    $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id_torneo = ?");
+    $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id = ?");
     $consulta->bind_param("i", $torneo_id); // 'i' para indicar que el parámetro es un entero
     $consulta->execute();
     $resultado = $consulta->get_result();
