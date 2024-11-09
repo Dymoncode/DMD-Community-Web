@@ -239,9 +239,10 @@ transform: rotate(-45deg);
 }
 .juegos-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Se adapta mejor para 4 columnas */
   gap: 1rem;
 }
+
 
 .juego {
   background: black;
