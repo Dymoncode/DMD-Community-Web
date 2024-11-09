@@ -79,7 +79,7 @@ if (isset($_GET['id'])) {
 
 
             <!-- Campos para inscripción en equipo -->
-            <div id="teamSection" style="display: none;">
+            <!-- <div id="teamSection" style="display: none;">
                 <label for="teamCaptainEmail">Correo del Capitán</label>
                 <input type="email" id="teamCaptainEmail" name="teamCaptainEmail" required>
 
@@ -95,7 +95,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <button type="button" onclick="addMember()">Añadir miembro</button>
                 
-            </div>
+            </div> -->
 
             <!-- Botón de envío -->
             <button type="submit">Enviar Inscripción</button>
