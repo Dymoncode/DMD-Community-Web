@@ -235,7 +235,9 @@ transform: rotate(-45deg);
   }
   
   
-  
+  .section-juegos{
+    padding: 20px 10px;
+  }
 }
 .juegos-container {
   display: grid;
