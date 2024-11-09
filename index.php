@@ -159,7 +159,7 @@ while ($row = $resultado2->fetch_assoc()) {
                     <p class="puesto">Desarrollador Frontend y Discord</p>
                 </div>
                 <div class="equipo-card">
-                    <img src="Assets/Images/default-profile.png" alt="Programador 2">
+                    <img src="Assets/Images/Nuestro Equipo/Programadores/Logo-Migui.jpeg" alt="Programador 2">
                     <p class="nombre">Migui</p>
                     <p class="puesto">Desarrollador Frontend</p>
                 </div>
@@ -188,7 +188,7 @@ while ($row = $resultado2->fetch_assoc()) {
             <div class="equipo-lista">
                 <div class="equipo-card">
                     <img src="Assets/Images/default-profile.png" alt="Diseñador 1">
-                    <p>AkaPelu</p>
+                    <p>Diseñador 1</p>
                 </div>
                 <!-- Añadir más diseñadores aquí -->
             </div>
@@ -203,7 +203,7 @@ while ($row = $resultado2->fetch_assoc()) {
                     <p>Dmondejarm</p>
                 </div>
                 <div class="equipo-card">
-                    <img src="Assets/Images/default-profile.png" alt="Comentarista 2">
+                    <img src="Assets/Images/Nuestro Equipo/Comentaristas/Logo-S1moscs.png" alt="Comentarista 2">
                     <p>s1moscs</p>
                 </div>
                 <!-- Añadir más comentaristas aquí -->
@@ -229,7 +229,7 @@ while ($row = $resultado2->fetch_assoc()) {
                     <p>hdanh_074</p>
                 </div>
                 <div class="equipo-card">
-                    <img src="Assets/Images/default-profile.png" alt="Creador de Contenido 4">
+                    <img src="Assets/Images/Nuestro Equipo/Creadores de Contenido/Logo-S1moscs.png" alt="Creador de Contenido 4">
                     <p>s1moscs</p>
                 </div>
                 <div class="equipo-card">
