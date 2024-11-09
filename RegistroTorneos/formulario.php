@@ -1,6 +1,6 @@
 <?php
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
-
+session_start();
 // Verificar si el id del torneo se ha enviado por POST (cuando el formulario se envía)
 if (isset($_GET['id'])) {
     $id = $_GET['id']; // Obtener el id del torneo desde el formulario
@@ -60,13 +60,20 @@ if (isset($_GET['id'])) {
             </select>
 
             <!-- Campos para inscripción individual -->
-            <div id="individualSection">
-                <label for="playerEmail">Correo Electrónico</label>
-                <input type="email" id="playerEmail" name="playerEmail" required>
+                
+                
+                <?php
+                // si el usuario no está logueado, mostrar los campos de email y teléfono
+                // si el usuario está logueado, mostrar los campos de nombre y teléfono
+                if (!isset($_SESSION['usuario'])) { ?>
+                    <div id="individualSection">
+                        <label for="playerEmail">Correo Electrónico</label>
+                        <input type="email" id="playerEmail" name="playerEmail" required>
 
-                <label for="playerPhone">Teléfono</label>
-                <input type="tel" id="playerPhone" name="playerPhone">
-            </div>
+                        <label for="playerPhone">Teléfosno</label>
+                        <input type="tel" id="playerPhone" name="playerPhone">
+                    </div>
+                <?php } ?>
 
             <!-- Campos para inscripción en equipo -->
             <div id="teamSection" style="display: none;">
