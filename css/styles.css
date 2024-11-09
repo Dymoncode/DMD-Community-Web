@@ -143,6 +143,10 @@ body {
 
 
 }
+.container-juegos{
+  display: flex;
+  flex-direction: column;
+}
 
 .card-wrapper{
   max-width: 1100px;

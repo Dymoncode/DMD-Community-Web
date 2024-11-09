@@ -86,6 +86,7 @@ while ($row = $resultado2->fetch_assoc()) {
     </div>
 </section>
     <section id="juegos" class="section-juegos">
+        <div class="container-juegos">
         <div class="header-section">
             <h2>Juegos Disponibles</h2>
         </div>
@@ -96,6 +97,7 @@ while ($row = $resultado2->fetch_assoc()) {
                 </div>
 
             <?php } ?>
+        </div>
         </div>
     </section>
     <section id="noticias" class="section">
