@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
                         <label for="playerEmail">Correo Electrónico</label>
                         <input type="email" id="playerEmail" name="playerEmail" required>
 
-                        <label for="playerPhone">Teléfono</label>
+                        <label for="playerPhone">Teléfosno</label>
                         <input type="tel" id="playerPhone" name="playerPhone">
                     </div>
                 <?php } ?>
