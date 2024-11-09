@@ -69,7 +69,7 @@ while ($row = $resultado2->fetch_assoc()) {
                 <ul class="card-list swiper-wrapper">
                     <?php foreach ($torneos as $row) { ?>
                         <li class="card-item swiper-slide">
-                            <a href="formulario_inscripcion.php?id_torneo=<?php echo $row['id_torneo']; ?>" class="card-link">
+                            <a href="./RegistroTorneos/formulario.php?id_torneo=<?php echo $row['id_torneo']; ?>" class="card-link">
                                 <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
                                 <h2 class="card-title"><?php echo $row['nombre']; ?></h2>
                                 <p class="card-text">Fecha de inicio: <?php echo $row['fecha_inicio']; ?></p>
