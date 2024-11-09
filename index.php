@@ -70,7 +70,7 @@ while ($row = $resultado2->fetch_assoc()) {
     <?php foreach ($torneos as $row) { ?>
         <li class="card-item swiper-slide">
             <form action="./RegistroTorneos/formulario.php" method="POST" class="card-link">
-                <input type="hidden" name="id_torneo" value="<?php echo $row['id_torneo']; ?>"> <!-- ID del torneo -->
+                <input type="hidden" id="id_torneo" name="id_torneo" value="<?php echo $row['id_torneo']; ?>"> <!-- ID del torneo -->
                 
                 <img src="<?php echo $row['imagen']; ?>" alt="Card Image" class="card-image">
                 <h2 class="card-title">
