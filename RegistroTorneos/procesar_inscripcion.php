@@ -1,7 +1,7 @@
 <?php
-
-if(isset($_POST['participantName'], $_POST['participantNameDiscord'], $_POST['participantNick'], $_POST['registrationType'], $_POST['id_torneo'],$_POST['participantNameLogeado']
-,$_POST['tournamentName'])) {
+if(isset($_POST['participantName'], $_POST['participantNameDiscord'], $_POST['participantNick'], $_POST['registrationType'], $_POST['id_torneo'], $_POST['participantNameLogeado'], $_POST['tournamentName'])) {
+    
+    // Obtener los valores enviados por POST
     $nombretorneo = $_POST['tournamentName'];
     $nombre = $_POST['participantName'];
     $discord = $_POST['participantNameDiscord'];
@@ -9,40 +9,40 @@ if(isset($_POST['participantName'], $_POST['participantNameDiscord'], $_POST['pa
     $tipo = $_POST['registrationType'];
     $id_torneo = $_POST['id_torneo'];
 
-
+    // Variables para la inscripción individual
     if($tipo == 'individual') {
         $correo = $_POST['playerEmail'];
         $telefono = $_POST['playerPhone'];
-    } 
-    $sql = "INSERT INTO FormularioTorneo (nombre_torneo, Participante, NickDiscord, NickParticipante, TipodeInscripción, CorreoElectrónico, Teléfono) VALUES (?,?,?,?,?,?,?,?)";
-    $stmt = $conexion->prepare($sql);
-    if ($stmt === false) die('Error en la preparacion de la consulta: ' . htmlspecialchars($conexion->error));
-    $stmt->bind_param("isssssss", $nombretorneo, $nombre, $discord, $nick, 'ind', $correo, $telefono);
-    if(!$stmt->execute()) die('Error en la ejecucion de la consulta: ' . htmlspecialchars($stmt->error));
-    $stmt->close();
-    $result = $conexion->query($sql);
-
-   
-    if($result) {
-
-        echo 'Inscripción realizada con éxito';
-    } else {
-        echo 'Error al realizar la inscripción';
     }
+
+    // Consulta SQL con los parámetros adecuados
+    $sql = "INSERT INTO FormularioTorneo (nombre_torneo, Participante, NickDiscord, NickParticipante, TipodeInscripción, CorreoElectrónico, Teléfono) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    // Preparar la consulta
+    $stmt = $conexion->prepare($sql);
+    if ($stmt === false) {
+        die('Error en la preparación de la consulta: ' . htmlspecialchars($conexion->error));
+    }
+
+    // Determinar si es inscripción individual o equipo
+    if ($tipo == 'individual') {
+        // Asignamos los parámetros para una inscripción individual
+        $stmt->bind_param("sssssss", $nombretorneo, $nombre, $discord, $nick, $tipo, $correo, $telefono);
+    } else {
+        // Si es inscripción de equipo, no necesitamos correo ni teléfono
+        $stmt->bind_param("sssss", $nombretorneo, $nombre, $discord, $nick, $tipo);
+    }
+
+    // Ejecutar la consulta
+    if (!$stmt->execute()) {
+        die('Error en la ejecución de la consulta: ' . htmlspecialchars($stmt->error));
+    }
+
+    $stmt->close();
+
+    // Confirmar que la inscripción fue realizada con éxito
+    echo 'Inscripción realizada con éxito';
 } else {
     echo 'Por favor complete todos los campos';
 }
-
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hola</h1>
-</body>
-</html>
