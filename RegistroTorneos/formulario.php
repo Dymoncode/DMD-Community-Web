@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
                 <?php
                 // si el usuario no está logueado, mostrar los campos de email y teléfono
                 // si el usuario está logueado, mostrar los campos de nombre y teléfono
-                if (!isset($_SESSION['usuario'])) { ?>
+                if (isset($_SESSION['usuario'])) { ?>
                     <div id="individualSection">
                         <label for="playerEmail">Correo Electrónico</label>
                         <input type="email" id="playerEmail" name="playerEmail" required>
