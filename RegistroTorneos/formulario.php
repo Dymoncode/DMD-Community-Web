@@ -34,7 +34,6 @@ if (isset($_POST['id_torneo'])) {
             <label for="tournamentName">Nombre del Torneo: 
                 <?php echo htmlspecialchars($torneo['nombre']); ?>    
             </label>
-            <input type="text" id="tournamentName" name="tournamentName" value="<?php echo htmlspecialchars($torneo['nombre']); ?>" required>
 
             <label for="participantName">Nombre del Participante o Equipo</label>
             <input type="text" id="participantName" name="participantName" required>
