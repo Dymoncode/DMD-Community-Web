@@ -1,9 +1,9 @@
 <?php
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
-// Verificar si el id_torneo se ha enviado por POST
-if (isset($_POST['id_torneo'])) {
-    $torneo_id = $_POST['id_torneo'];
+// Verificar si el id_torneo se ha enviado por GET
+if (isset($_GET['id_torneo'])) {
+    $torneo_id = $_GET['id_torneo'];
     
     // Usar una consulta preparada para evitar inyección SQL
     $consulta = $conexion->prepare("SELECT * FROM torneos WHERE id = ?");
@@ -11,6 +11,18 @@ if (isset($_POST['id_torneo'])) {
     $consulta->execute();
     $resultado = $consulta->get_result();
     
+    // Verificar si se encontró el torneo
+    if ($resultado->num_rows > 0) {
+        $torneo = $resultado->fetch_assoc(); // Obtener los datos del torneo
+    } else {
+        // Si no se encuentra el torneo, manejar el error
+        echo "Torneo no encontrado.";
+        exit;
+    }
+} else {
+    // Si no se recibe id_torneo, manejar el error
+    echo "ID de torneo no proporcionado.";
+    exit;
 }
 ?>
 
@@ -32,8 +44,9 @@ if (isset($_POST['id_torneo'])) {
         <form id="tournamentForm" action="procesar_inscripcion.php" method="POST">
             <!-- Datos generales -->
             <label for="tournamentName">Nombre del Torneo: 
-                <?php echo htmlspecialchars($resultado['id']); ?>    
+                <?php echo htmlspecialchars($torneo['nombre']); ?>    
             </label>
+            <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id_torneo']); ?>">
 
             <label for="participantName">Nombre del Participante o Equipo</label>
             <input type="text" id="participantName" name="participantName" required>
@@ -76,8 +89,6 @@ if (isset($_POST['id_torneo'])) {
             <button type="submit">Enviar Inscripción</button>
         </form>
     </div>
-
-   
 </body>
 
 </html>
