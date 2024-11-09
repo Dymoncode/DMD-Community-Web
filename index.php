@@ -77,10 +77,10 @@ while ($row = $resultado2->fetch_assoc()) {
                             <p class="card-text">Fecha de inicio:
                                 <?php echo $row['fecha_inicio']; ?>
                             </p>
-                            <p class="card-text">Premio:
+                            <p class="card-text">Premio: €
                                 <?php echo $row['Premio']; ?>
                             </p>
-                            <p class="card-text">Precio de inscripción: $
+                            <p class="card-text">Precio de inscripción: €
                                 <?php echo $row['Precio_inscripcion']; ?>
                             </p>
                             <button class="card-button material-symbols-outlined">arrow_forward</button>
