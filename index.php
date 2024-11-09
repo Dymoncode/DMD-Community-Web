@@ -233,7 +233,7 @@ while ($row = $resultado2->fetch_assoc()) {
                     <p>s1moscs</p>
                 </div>
                 <div class="equipo-card">
-                    <img src="Assets/Images/default-profile.png" alt="Creador de Contenido 5">
+                    <img src="Assets/Images/Nuestro Equipo/Creadores de Contenido/Logo-Beeleen.webp" alt="Creador de Contenido 5">
                     <p>Beeleen</p>
                 </div>
                 <!-- Añadir más creadores de contenido aquí -->
