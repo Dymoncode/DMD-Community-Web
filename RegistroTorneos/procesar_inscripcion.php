@@ -17,7 +17,7 @@ if(isset($_POST['participantName'], $_POST['participantNameDiscord'], $_POST['pa
     $sql = "INSERT INTO inscripciones (nombre_torneo, Participante, NickDiscord, NickParticipante, TipodeInscripción, CorreoElectrónico, Teléfono) VALUES (?,?,?,?,?,?,?,?)";
     $stmt = $conexion->prepare($sql);
     if ($stmt === false) die('Error en la preparacion de la consulta: ' . htmlspecialchars($conexion->error));
-    $stmt->bind_param("isssssss", $nombretorneo, $nombre, $discord, $nick, $tipo, $correo, $telefono);
+    $stmt->bind_param("isssssss", $nombretorneo, $nombre, $discord, $nick, 'ind', $correo, $telefono);
     if(!$stmt->execute()) die('Error en la ejecucion de la consulta: ' . htmlspecialchars($stmt->error));
     $stmt->close();
     $result = $conexion->query($sql);
