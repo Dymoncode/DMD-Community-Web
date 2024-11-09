@@ -10,7 +10,8 @@ if (isset($_GET['id'])) {
     $consulta->bind_param("i", $id); // 'i' para indicar que el parámetro es un entero
     $consulta->execute();
     $resultado = $consulta->get_result();
-    
+
+
     // Verificar si se encontró el torneo
     if ($resultado->num_rows > 0) {
         $torneo = $resultado->fetch_assoc(); // Obtener los datos del torneo
