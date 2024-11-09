@@ -4,20 +4,24 @@
   font-weight: normal;
   src: local('Arial'), local('ArialMT');
   /* Esta propiedad asegura que el texto sea visible mientras se carga la fuente. */
-  font-display: swap; /* O puedes usar auto, block, fallback */
+  font-display: swap;
+  /* O puedes usar auto, block, fallback */
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
 }
+
 body {
 
   min-height: 100vh;
   background-color: #ddd;
 
 }
+
 /* Encabezado */
 .header {
   position: relative;
@@ -45,6 +49,7 @@ body {
   overflow: hidden;
   /* Oculta cualquier desbordamiento */
 }
+
 /* Capa de fondo semi-transparente */
 .overlay {
   position: absolute;
@@ -122,8 +127,9 @@ body {
   color: black;
   /* Texto negro al pasar el mouse */
 }
+
 /* Secciones */
-.section-torneo{
+.section-torneo {
   padding: 30px 20px;
   margin: 20px 0;
   background: white;
@@ -143,22 +149,25 @@ body {
 
 
 }
-.container-juegos{
+
+.container-juegos {
   display: flex;
   flex-direction: column;
 }
 
-.card-wrapper{
+.card-wrapper {
   max-width: 1100px;
-  
+
   margin: 0 60px 35px;
   padding: 20px 10px;
   overflow: hidden;
 
 }
-.card-list .card-item{
+
+.card-list .card-item {
   list-style: none;
 }
+
 .card-list .card-item .card-link {
 
   user-select: none;
@@ -172,12 +181,14 @@ body {
   transition: 0.3s ease;
 
 }
+
 .card-list .card-item .card-link:active {
   cursor: grabbing;
 
 }
+
 .card-list .card-item .card-link:hover {
- border-color: #ffb700;
+  border-color: #ffb700;
 }
 
 .card-list .card-link .card-image {
@@ -187,8 +198,9 @@ body {
   object-fit: cover;
   border-radius: 10px;
 }
-.card-list .card-link .card-title{
-  color : #000;
+
+.card-list .card-link .card-title {
+  color: #000;
   padding: 8px 16px;
   font-size: 1.2rem;
   font-weight: 600;
@@ -197,67 +209,78 @@ body {
   width: fit-content;
   border-radius: 50px;
 }
-.card-list .card-link .card-text{
+
+.card-list .card-link .card-text {
   font-size: 1rem;
   color: #000;
   font-weight: 400;
 }
-.card-list .card-link .card-button{
-height: 35px;
-width: 35px;
-border-radius: 50%;
-margin: 30px 0 5px;
-border: 2px solid #ffb700;
-background: none;
-cursor: pointer;
-border : 2px solid #ffb700;
-transform: rotate(-45deg);
+
+.card-list .card-link .card-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin: 30px 0 5px;
+  border: 2px solid #ffb700;
+  background: none;
+  cursor: pointer;
+  border: 2px solid #ffb700;
+  transform: rotate(-45deg);
 
 }
-.card-list .card-link:hover .card-button{
+
+.card-list .card-link:hover .card-button {
   color: #000;
   background: #ffb700;
 
 }
-.card-wrapper .swiper-pagination-bullet{
+
+.card-wrapper .swiper-pagination-bullet {
   height: 13px;
   width: 13px;
   opacity: 0.5;
   background: #ffb700;
 }
 
-.card-wrapper .swiper-pagination-bullet-active{
+.card-wrapper .swiper-pagination-bullet-active {
 
   opacity: 1;
 }
-.card-wrapper .swiper-slide-button{
+
+.card-wrapper .swiper-slide-button {
   color: #ffb700;
   margin-top: -35px;
 }
 
-@media screen and (max-width: 768px){
-  .card-wrapper{
+@media screen and (max-width: 768px) {
+  .card-wrapper {
     margin: 0 20px 35px;
   }
-  .card-wrapper .swiper-slide-button{
+
+  .card-wrapper .swiper-slide-button {
     display: none;
   }
-  
-  
-  
+
+
+
 }
-.section-juegos{
+
+.section-juegos {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px 20px;
   background-color: white;
 }
+
 .juegos-container {
   display: flex;
-  grid-template-columns: repeat(1, 1fr); /* Crea 4 columnas */
-  gap: 1rem; /* Espacio entre elementos */
-  width: fit-content; /* Ajusta el ancho al contenido */
+  grid-template-columns: repeat(1, 1fr);
+  /* Crea 4 columnas */
+  gap: 1rem;
+  /* Espacio entre elementos */
+  width: fit-content;
+  /* Ajusta el ancho al contenido */
 }
 
 
@@ -387,7 +410,7 @@ transform: rotate(-45deg);
 .equipo-card img {
   width: 120px;
   /* Ajustar el ancho a un 90% del contenedor */
-  height:120px;
+  height: 120px;
   /* Mantener la altura automática para conservar la relación de aspecto */
   max-height: 120px;
   /* Altura máxima para evitar que se salga del recuadro */

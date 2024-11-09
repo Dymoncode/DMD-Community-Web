@@ -17,20 +17,16 @@
                 <span>Register</span>
             </div>
             <form action="registro.php" method="post">
-            <div class="input_box">
-                <input type="text" id="user" class="input-field" required>
-                <label for="user" class="label">Username</label>
-                <i class="bx bx-user icon"></i>
-
-            </div>
-            <div class="input_box">
-                <input type="password" id="pass" class="input-field" required>
-                <label for="pass" class="label">Password</label>
-                <i class="bx bx-lock-alt icon"></i>
-            </div>
-
-
-
+                <div class="input_box">
+                    <input type="text" id="user" class="input-field" required>
+                    <label for="user" class="label">Username</label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+                <div class="input_box">
+                    <input type="password" id="pass" class="input-field" required>
+                    <label for="pass" class="label">Password</label>
+                    <i class="bx bx-lock-alt icon"></i>
+                </div>
                 <div class="input_box">
                     <input type="password" id="confirm_pass" class="input-field" required>
                     <label for="confirm_pass" class="label">Confirm Password</label>
@@ -40,12 +36,10 @@
                     <input type="submit" value="Register" class="input_submit">
                 </div>
             </form>
-                <div class="login-footer">
-                    <a href="login.html">Already have an account?</a>
-                </div>
-
+            <div class="login-footer">
+                <a href="login.html">Already have an account?</a>
             </div>
-
+        </div>
 </body>
 
 </html>

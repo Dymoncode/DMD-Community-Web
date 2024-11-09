@@ -24,6 +24,7 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,8 +40,8 @@ if (isset($_GET['id'])) {
             <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
 
             <!-- Datos generales -->
-            <label for="tournamentName">Nombre del Torneo: 
-                <?php echo $torneo['nombre']; ?>    
+            <label for="tournamentName">Nombre del Torneo:
+                <?php echo $torneo['nombre']; ?>
             </label>
 
             <label for="participantName">Nombre del Participante o Equipo</label>
@@ -60,20 +61,20 @@ if (isset($_GET['id'])) {
             </select>
 
             <!-- Campos para inscripción individual -->
-                <?php
+            <?php
                 // si el usuario no está logueado, mostrar los campos de email y teléfono
                 // si el usuario está logueado, mostrar los campos de nombre y teléfono
                 if (!isset($_SESSION['user']))  { ?>
-                    <div id="individualSection">
-                        <label for="playerEmail">Correo Electrónico</label>
-                        <input type="email" id="playerEmail" name="playerEmail" required>
+            <div id="individualSection">
+                <label for="playerEmail">Correo Electrónico</label>
+                <input type="email" id="playerEmail" name="playerEmail" required>
 
-                        <label for="playerPhone">Teléfono</label>
-                        <input type="tel" id="playerPhone" name="playerPhone">
-                    </div>
-                <?php }?>
-                    
-             
+                <label for="playerPhone">Teléfono</label>
+                <input type="tel" id="playerPhone" name="playerPhone">
+            </div>
+            <?php }?>
+
+
 
 
             <!-- Campos para inscripción en equipo -->
@@ -98,7 +99,7 @@ if (isset($_GET['id'])) {
             <button type="submit">Enviar Inscripción</button>
         </form>
     </div>
-  
+
 </body>
 
 </html>
