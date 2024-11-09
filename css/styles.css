@@ -136,7 +136,8 @@ body {
 }
 .header-section {
   display: flex;
-  position: absolute;
+
+ 
   align-items: center;
   margin-bottom: 10px;
 }
