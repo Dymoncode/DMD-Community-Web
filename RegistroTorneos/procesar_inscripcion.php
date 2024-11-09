@@ -14,7 +14,7 @@ if(isset($_POST['participantName'], $_POST['participantNameDiscord'], $_POST['pa
         $correo = $_POST['playerEmail'];
         $telefono = $_POST['playerPhone'];
     } 
-    $sql = "INSERT INTO inscripciones (nombre_torneo, Participante, NickDiscord, NickParticipante, TipodeInscripción, CorreoElectrónico, Teléfono) VALUES (?,?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO FormularioTorneo (nombre_torneo, Participante, NickDiscord, NickParticipante, TipodeInscripción, CorreoElectrónico, Teléfono) VALUES (?,?,?,?,?,?,?,?)";
     $stmt = $conexion->prepare($sql);
     if ($stmt === false) die('Error en la preparacion de la consulta: ' . htmlspecialchars($conexion->error));
     $stmt->bind_param("isssssss", $nombretorneo, $nombre, $discord, $nick, 'ind', $correo, $telefono);
