@@ -138,6 +138,7 @@ body {
   display: flex;
   position: absolute;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .card-wrapper{
