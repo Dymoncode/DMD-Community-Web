@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once '../vendor/autoload.php';
 require_once '../config.php';
 
@@ -15,6 +17,7 @@ function configurar_cliente_google() {
     $client->setRedirectUri($redirectURI);
     $client->addScope("email");
     $client->addScope("profile");
+    $client->setPrompt('select_account'); // Forzar selección de cuenta
 
     return $client;
 }
