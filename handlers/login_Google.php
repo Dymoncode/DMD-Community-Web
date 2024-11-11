@@ -64,7 +64,7 @@ function usuario_existente_google($conexion, $correo) {
 // Función para registrar un nuevo usuario con Google
 function registrar_usuario_google($conexion, $nombre, $correo) {
     // Preparar la consulta SQL
-    $sql = "INSERT INTO users_google (usuario,correo) VALUES (?, ?)";
+    $sql = "INSERT INTO users (usuario,correo) VALUES (?, ?)";
     $stmt = $conexion->prepare($sql);
 
     // Verificar si la preparación fue exitosa
