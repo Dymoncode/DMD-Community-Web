@@ -23,6 +23,7 @@ if (isset($_GET['id'])) {
 //  conseguir el id del usuario
 if (isset($_SESSION['user_id'])) {
     $id_usuario = $_SESSION['user_id']; 
+    
     // id del usuario google
     
 
