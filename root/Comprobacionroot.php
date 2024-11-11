@@ -4,7 +4,7 @@ include 'conexionroot.php';
 // Función para validar entradas
 function validar_usuario($data) {
     return htmlspecialchars(stripslashes(trim($data)));
-}
+} 
 
 // Función para comparar contraseñas
 function comparar_contraseñas($contraseña, $contraseña_confirm) {
