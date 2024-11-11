@@ -37,9 +37,8 @@ if (isset($_GET['id'])) {
         <h2>Formulario de Inscripción a Torneos</h2>
         <form id="tournamentForm" action="procesar_inscripcion.php" method="POST">
             <!-- Campo oculto para enviar el id del torneo -->
-            <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
             <input type="hidden" name="tournamentName" value="<?php echo htmlspecialchars($torneo['nombre']); ?>">
-           
+
             <!-- Datos generales -->
             <label for="tournamentName">Nombre del Torneo:
                 <?php echo $torneo['nombre']; ?>
@@ -74,6 +73,7 @@ if (isset($_GET['id'])) {
                 <input type="tel" id="playerPhone" name="playerPhone">
             </div>
             <?php }?>
+            <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
 
 
 
