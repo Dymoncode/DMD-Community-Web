@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Arial';
   font-style: normal;
-  font-weight: normal;
+  font-weight: normal; 
   src: local('Arial'), local('ArialMT');
   /* Esta propiedad asegura que el texto sea visible mientras se carga la fuente. */
   font-display: swap; /* O puedes usar auto, block, fallback */
