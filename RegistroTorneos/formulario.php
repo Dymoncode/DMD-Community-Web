@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
 //  conseguir el id del usuario
 if (isset($_SESSION['user_id'])) {
     $id_usuario = $_SESSION['user_id']; 
-    
+
     // id del usuario google
     
 
@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
 <body>
     <div class="form-container">
         <h2>Formulario de Inscripción a Torneos</h2>
-        <form id="tournamentForm" action="procesar_inscripcion.php" method="POST">
+        <form id="tournamentForm" action="./procesar_inscripcion.php" method="POST">
             <!-- Campo oculto para enviar el id del torneo -->
             <input type="hidden" name="tournamentName" value="<?php echo htmlspecialchars($torneo['nombre']); ?>">
 
@@ -84,6 +84,7 @@ if (isset($_SESSION['user_id'])) {
             <?php }?>
             <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
             <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($id_usuario); ?>">
+
             <!-- Campos para inscripción en equipo -->
             <!-- <div id="teamSection" style="display: none;">
                 <label for="teamCaptainEmail">Correo del Capitán</label>
