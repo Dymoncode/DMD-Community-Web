@@ -1,5 +1,5 @@
 <?php
-session_start(); // Iniciar sesión antes de procesar
+
 include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
 
 // Verificar si el formulario se ha enviado correctamente
