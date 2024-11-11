@@ -2,7 +2,7 @@
 session_start(); // Iniciar sesión antes de procesar
 
 // Verificar si el formulario se ha enviado correctamente
-if (isset($_POST['tournamentName'], $_POST['participantName'], $_POST['participantNameDiscord'], $_POST['participantNick'], $_POST['registrationType'], $_POST['id_torneo'])) {
+if (isset($_POST['tournamentName'], $_POST['participantName'], $_POST['participantNameDiscord'], $_POST['participantNick'], $_POST['registrationType'], $_POST['id_torneo'],$_POST['id_usuario'])) {
     
     // Verificar si el usuario no está registrado y validar los campos correspondientes
     if (!isset($_SESSION['user'])) {
@@ -19,7 +19,8 @@ if (isset($_POST['tournamentName'], $_POST['participantName'], $_POST['participa
     echo "Nick del Participante: " . htmlspecialchars($_POST['participantNick']) . "<br>";
     echo "Tipo de Inscripción: " . htmlspecialchars($_POST['registrationType']) . "<br>";
     echo "ID del Torneo: " . htmlspecialchars($_POST['id_torneo']) . "<br>";
-    
+    echo "ID del Usuario: " . htmlspecialchars($_POST['id_usuario']) . "<br>";
+
     if (!isset($_SESSION['user'])) {
         // Mostrar correo y teléfono solo si el usuario no está registrado
         echo "Correo Electrónico: " . htmlspecialchars($_POST['playerEmail']) . "<br>";

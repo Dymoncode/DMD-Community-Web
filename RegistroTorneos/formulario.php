@@ -74,10 +74,7 @@ if (isset($_GET['id'])) {
             </div>
             <?php }?>
             <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
-
-
-
-
+            <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars(isset($_SESSION['user'])); ?>">
             <!-- Campos para inscripción en equipo -->
             <!-- <div id="teamSection" style="display: none;">
                 <label for="teamCaptainEmail">Correo del Capitán</label>
