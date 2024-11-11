@@ -9,7 +9,5 @@ if (isset($_POST['tournamentName'], $_POST['participantName'], $_POST['participa
     echo "Correo Electrónico: " . htmlspecialchars($_POST['playerEmail']) . "<br>";
     echo "Teléfono: " . htmlspecialchars($_POST['playerPhone']) . "<br>";
     echo "ID del Torneo: " . htmlspecialchars($_POST['id_torneo']) . "<br>";
-} else {
-    echo "Por favor complete todos los campos";
 }
 ?>
