@@ -115,6 +115,7 @@ function iniciar_sesion($usuario_datos) {
 
     // Almacenar los datos del usuario en la sesión
     $_SESSION['user'] = $usuario_datos['Usuario'];
+    $_SESSION['user_id'] = $usuario_datos['id'];
 
     // Redirigir al usuario a la página de inicio
     header('Location: ../index.php');
