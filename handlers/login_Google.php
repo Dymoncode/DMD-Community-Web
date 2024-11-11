@@ -39,7 +39,7 @@ function obtener_info_google($client) {
 // Funcion para comprobar si el usuario ya existe en la base de datos de usuarios con google
 function usuario_existente_google($conexion, $correo) {
     // Preparar la consulta SQL
-    $sql = "SELECT * FROM users_google WHERE correo = ?";
+    $sql = "SELECT * FROM users WHERE correo = ?";
     $stmt = $conexion->prepare($sql);
 
     // Verificar si la preparación fue exitosa
