@@ -54,10 +54,8 @@ function usuario_existente_google($conexion, $correo) {
     if (!$stmt->execute()) {
         die('Error en la ejecución de la consulta: ' . htmlspecialchars($stmt->error));
     }
-
     // Retornar el resultado si existe
     return $stmt->get_result()->fetch_assoc(); // Retorna el usuario si existe
-
 
 }
 

@@ -1,8 +1,11 @@
 <?php
-include '../sql/conexionsql_user.php'; // Incluir el archivo de conexión a la base de datos
+
+require_once '../config.php';
 
 session_start(); // Iniciar sesión antes de procesar
 // Función para validar entradas
+
+
 function validar_usuario($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }

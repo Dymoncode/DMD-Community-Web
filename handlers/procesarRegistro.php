@@ -8,6 +8,8 @@ require '../vendor/autoload.php';
 
 // Incluir la conexión a la base de datos
 include '../sql/conexionsql_user.php';
+
+
 // Función para validar entradas
 function validar_usuario($data) {
     return htmlspecialchars(stripslashes(trim($data)));
