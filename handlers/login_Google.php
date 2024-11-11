@@ -112,7 +112,8 @@ function iniciar_sesion($usuario_datos) {
 
     $_SESSION['user'] = $usuario_datos['usuario'];
     $_SESSION['user_id'] = $usuario_datos['id']; // Almacenar el ID en la sesión
-
+    // almacenar el email
+    $_SESSION['email'] = $usuario_datos['correo'];
     header('Location: ../index.php');
     exit();
 }
