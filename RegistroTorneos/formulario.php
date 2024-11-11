@@ -20,6 +20,11 @@ if (isset($_GET['id'])) {
         exit; // Detener la ejecución si no se encuentra el torneo
     }
 }
+//  conseguir el id del usuario
+if (isset($_SESSION['user_id'])) {
+    $id_usuario = $_SESSION['user_id'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +79,7 @@ if (isset($_GET['id'])) {
             </div>
             <?php }?>
             <input type="hidden" name="id_torneo" value="<?php echo htmlspecialchars($torneo['id']); ?>">
+            <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($id_usuario); ?>">
             <!-- Campos para inscripción en equipo -->
             <!-- <div id="teamSection" style="display: none;">
                 <label for="teamCaptainEmail">Correo del Capitán</label>
