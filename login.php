@@ -87,7 +87,7 @@ $client->setPrompt('select_account');
                 </div>
             </form>
             <div class="input_box">
-            <a href="<?php echo $client->createAuthUrl() . '&prompt=select_account'; ?>" class="a_google">
+            <a href="<?php echo $client->createAuthUrl(); ?>" class="a_google">
             <button class="button">
                         <svg data-testid="geist-icon" height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16"
                             style="color: currentcolor;">
