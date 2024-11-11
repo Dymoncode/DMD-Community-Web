@@ -23,7 +23,7 @@ $client->setRedirectUri($redirectURI);
 $client->addScope("email");
 $client->addScope("profile");
 
-
+$client->setPrompt('select_account');
 ?>
 
 <!DOCTYPE html>
